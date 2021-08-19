@@ -64,7 +64,7 @@ class UploadHelper
      * @param  string $checkFunction
      * @return string
      */
-    public static function MultiUploadUpdate(array $oldImages = [], array $newImages = [], string $currentImages = null, string $dir, string $checkFunction = null) : string
+    public static function MultiUploadUpdate(array $oldImages = [], array $newImages = [], string $currentImages = null, string $dir = null, string $checkFunction = null) : string
     {
         $currentImages = explode('|', $currentImages);
 

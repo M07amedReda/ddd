@@ -1,0 +1,41 @@
+{
+    "name": "mohamedreda/ddd",
+    "description": "DDD Laravel-structure-generator",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Mohamed Reda",
+            "email": "mohamed.reda.bot@gmail.com"
+        }
+    ],
+    "require": {
+        "prettus/l5-repository": "^2.7",
+        "spatie/laravel-activitylog": "^3.16",
+        "spatie/laravel-query-builder": "^3.3",
+        "livewire/livewire": "^2.3",
+        "laravel/ui": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MohamedReda\\DDD\\":"src/",
+            "App\\":"app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MohamedReda\\DDD\\":"src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "MohamedReda\\DDD\\DomainDriverDesignServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.1"
+    }
+}

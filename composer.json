@@ -11,7 +11,7 @@
     ],
     "require": {
         "prettus/l5-repository": "^2.7",
-        "spatie/laravel-activitylog": "^3.16",
+        "spatie/laravel-activitylog": "^4.0",
         "spatie/laravel-query-builder": "^3.3",
         "livewire/livewire": "^2.3",
         "laravel/ui": "^3.2"

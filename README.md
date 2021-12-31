@@ -14,7 +14,7 @@ cd ./your-project
         { 
             "name": "mohamedreda/ddd",
             "type": "vcs",
-            "url" : "https://github.com/MohamedReda/ddd.git"
+            "url" : "https://github.com/M07amedReda/ddd.git"
         }
 ],
 ```
@@ -100,13 +100,17 @@ php artisan ddd:make {type}
 - `Repo` 
 - `Event`  
 - `Listener` 
+- `Mail`
+- `Observer`
+- `Policy`
+- `Provider`
 - `DatabaseView`
 - `Resource`
 - `Datatable`
 - `Request`
 - `Rule`
 - `Migration`   
-- `Factory`    
+- `Factory`
 - `Seeder` 
 - `Graphql` 
 - `Notification`

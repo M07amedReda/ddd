@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Domain\{{DOMAIN}}\Providers;
+
+use App\Infrastructure\AbstractProviders\ServiceProvider;
+
+class {{$name}} extends ServiceProvider
+{
+    public function register()
+    {
+        //
+    }
+
+    public function boot()
+    {
+        //
+    }
+}

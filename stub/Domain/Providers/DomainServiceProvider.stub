@@ -75,6 +75,7 @@ class DomainServiceProvider extends ServiceProvider
      * @var array
      */
     protected $providers = [
+        ###PROVIDERS###
         RouteServiceProvider::class,
         RepositoryServiceProvider::class,
         HelperServiceProvider::class,

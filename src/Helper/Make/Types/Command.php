@@ -10,6 +10,9 @@ use Illuminate\Support\Str;
 
 class Command extends Maker
 {
+    const KERNEL_NAME   = "Kernel";
+    const CONSOLE_NAME  = "Console";
+
     /**
      * Options to be available once Command-Type is cllade
      *
@@ -62,13 +65,13 @@ class Command extends Maker
 
         $this->save($destination,$name,'php',$content);
 
-        $console = File::get(Path::toCommon('Console','Kernel.php'));
+        $console = File::get(Path::toCommon(self::CONSOLE_NAME,self::KERNEL_NAME.".php"));
 
         preg_match('#namespace (.*);#',$content,$matches);
         $class = $matches[1]."\\".$name;
 
         $console_content =Str::of($console)->replace("###COMMON_COMMAND###","\\$class::class,\n\t\t###COMMON_COMMAND###");
-        $this->save(Path::toCommon('Console'),'Kernel','php',$console_content);
+        $this->save(Path::toCommon(self::CONSOLE_NAME),self::KERNEL_NAME,'php',$console_content);
 
         return true;
     }

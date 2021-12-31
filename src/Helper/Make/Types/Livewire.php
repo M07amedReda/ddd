@@ -31,13 +31,13 @@ class Livewire extends Maker
 
         $view = strtolower(Naming::class($values['name']));
 
-        $placeholders = [ 
+        $placeholders = [
             '{{NAME}}' => $name,
             '{{NAME_LC}}' => $view,
         ];
 
         $destination = Path::toCommon('Http', 'Livewire');
-        
+
         $content = Str::of($this->getStub('livewire'))->replace(array_keys($placeholders),array_values($placeholders));
 
         $this->save($destination,$name,'php',$content);

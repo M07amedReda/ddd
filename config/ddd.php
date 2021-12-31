@@ -175,6 +175,7 @@ return [
         "common_command" => "Common/Commands/command.stub",
         "common_scope" => "Common/Scopes/scope.stub",
         "common_event" => "Common/Events/event.stub",
+        "provider"      => 'Domain/Providers/Provider.stub',
         "common_notification" => "Common/Notifications/notification.stub",
         "common_listener" => "Common/Listeners/listener.stub",
         "common_mail" => "Common/Mails/mail.stub",
@@ -218,7 +219,7 @@ return [
         'first_domain-user-factory' => 'User/user-factory.stub',
         'first_domain-user-seeder' => 'User/user-seeder.stub',
         'first_domain-user-route-service-provider' => 'User/route-service-provider.stub',
-        
+
         'component-view' => 'Common/Components/view.stub',
         'component-class' => 'Common/Components/class.stub',
         'route-web' => 'route-web.stub',

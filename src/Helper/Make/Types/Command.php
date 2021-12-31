@@ -21,7 +21,7 @@ class Command extends Maker
     ];
 
     /**
-     * Return options that should be treated as choices 
+     * Return options that should be treated as choices
      *
      * @return Array
      */
@@ -59,16 +59,16 @@ class Command extends Maker
         $destination = Path::toDomain($values['domain'],'Commands');
 
         $content = Str::of($this->getStub('command'))->replace(array_keys($placeholders),array_values($placeholders));
-        
+
         $this->save($destination,$name,'php',$content);
 
-        $console = File::get(Path::toCommon('Console','kernel.php'));
+        $console = File::get(Path::toCommon('Console','Kernel.php'));
 
         preg_match('#namespace (.*);#',$content,$matches);
         $class = $matches[1]."\\".$name;
 
         $console_content =Str::of($console)->replace("###COMMON_COMMAND###","\\$class::class,\n\t\t###COMMON_COMMAND###");
-        $this->save(Path::toCommon('Console'),'kernel','php',$console_content);
+        $this->save(Path::toCommon('Console'),'Kernel','php',$console_content);
 
         return true;
     }

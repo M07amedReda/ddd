@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 abstract class Maker{
 
     use Stub;
-    
+
     /**
      * Holds an instance of the current command
      *
@@ -32,14 +32,14 @@ abstract class Maker{
     public $values;
 
     /**
-     * Return options to be included inside the command line 
+     * Return options to be included inside the command line
      *
      * @return Array
      */
     public $options = [];
 
     /**
-     * Return options that should be treated as choices 
+     * Return options that should be treated as choices
      *
      * @return Array
      */
@@ -110,7 +110,7 @@ abstract class Maker{
     public function getValues():array{
 
         $this->options = $this->fillInsertedOptions();
-        
+
         foreach($this->options as $option => &$value){
 
             if($value!=null) continue;
@@ -124,7 +124,7 @@ abstract class Maker{
                         $related_option = $_option;
 
                         $fulfilled = $this->options[$related_option['option']] == $related_option['value'];
-                        
+
                         if($fulfilled){
                             $value = $this->getOptionValue($option);
                             break;
@@ -136,7 +136,7 @@ abstract class Maker{
                     $related_option = $this->requiredUnless[$option];
 
                     $fulfilled = $this->options[$related_option['option']] == $related_option['value'];
-                    
+
                     if($fulfilled){
                         $value = $this->getOptionValue($option);
                     }else{
@@ -184,7 +184,7 @@ abstract class Maker{
 
             case 'domain':
                 $domains = Path::getDomains();
-                
+
                 [$key, $array, $error] = ["Domain", $domains, "No Domains Available, Please create one"];
 
                 break;
@@ -194,18 +194,18 @@ abstract class Maker{
                 [$key, $array, $error] = ["Entity", $entities, "No Entities Available inside ".$this->options['domain']];
 
                 break;
-                
+
             case 'command_http_general':
                 $command_http_general = ['Command','Http','General'];
 
                 [$key, $array, $error] = ["Type", $command_http_general, "No Types Available"];
 
                 break;
-                
+
             case 'database view':
 
                 $database_views = Path::files('app','Domain',$this->options['domain'],'Entities','Views');
-                
+
                 [$key, $array, $error] = ["Database View", $database_views, "No DatabaseViews Available inside ".$this->options['domain']];
 
                 break;
@@ -238,14 +238,14 @@ abstract class Maker{
 
                 break;
             case 'api version':
-                
+
                 $versions = Path::directories('app','Domain',$this->options['domain'],'Http','Controllers','Api');
 
                 [$key, $array, $error] = ["API Version", $versions, "No API Versions Available inside ".$this->options['domain']];
 
                 break;
             case 'api type':
-                
+
                 $types = [ 'Resource', 'SAC'];
 
                 [$key, $array, $error] = ["API Type", $types, "No API Types Available inside ".$this->options['domain']];
@@ -264,7 +264,7 @@ abstract class Maker{
 
                 break;
             case 'request':
-                $requests = Path::directories('app','Domain',$this->options['domain'],'Http','Requests'); 
+                $requests = Path::directories('app','Domain',$this->options['domain'],'Http','Requests');
 
                 [$key, $array, $error] = ["requests", $requests, "No Request Class Available inside ".$this->options['domain']];
 
@@ -295,7 +295,7 @@ abstract class Maker{
 
                 break;
             case 'graphql php type':
-                $types = [ 
+                $types = [
                     'query',
                     'mutation',
                     'directive',
@@ -327,7 +327,7 @@ abstract class Maker{
                 $value = $this->command->option($key);
             }
         }
-        
+
         return $options;
     }
 

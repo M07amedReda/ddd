@@ -54,8 +54,8 @@ class Provider extends Maker
         $content = File::get(Path::build($domainServiceProviderPath,'DomainServiceProvider.php'));
 
         $domainServiceProviderContent = Str::of($content)->replace(
-            "###PROVIDERS###",
-            "###PROVIDERS###\n\t\t{$name}::class,"
+            'protected $providers = [',
+            'protected $providers = ['."\n\t\t###PROVIDERS###\n\t\t{$name}::class,"
         );
 
         $this->save($domainServiceProviderPath,'DomainServiceProvider','php',$domainServiceProviderContent);

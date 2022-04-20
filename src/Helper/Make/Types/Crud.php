@@ -152,13 +152,12 @@ class Crud extends Maker
         File::makeDirectory($dir, 0755, true);
         File::makeDirectory(Path::build($dir,'_partials'), 0755, true);
         File::makeDirectory(Path::build($dir,'buttons'), 0755, true);
-//
-//
-//        $placeholders = [
-//            "###ROUTE###"=>$route_name,
-//            "###VIEW###"=>$dir_name,
-//            '###DATATABLE_NAME###'=> strtolower(Str::of($values['name'])->replace(' ','-'))
-//        ];
+
+        $placeholders = [
+            "###ROUTE###"=>$route_name,
+            "###VIEW###"=>$dir_name,
+            '###DATATABLE_NAME###'=> strtolower(Str::of($values['name'])->replace(' ','-'))
+        ];
 
         $fields = Str::of($this->getStub('view-fields'))->replace(array_keys($placeholders),array_values($placeholders));
         $scripts = Str::of($this->getStub('view-scripts'))->replace(array_keys($placeholders),array_values($placeholders));

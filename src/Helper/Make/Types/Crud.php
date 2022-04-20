@@ -98,11 +98,11 @@ class Crud extends Maker
         $this->views($values);
 
         // // Create Datatable
-        Datatable::createService([
-            'name'          =>  $values['name'],
-            'domain'        =>  $values['domain'],
-            'entity'        =>  $values['name'],
-        ]);
+//        Datatable::createService([
+//            'name'          =>  $values['name'],
+//            'domain'        =>  $values['domain'],
+//            'entity'        =>  $values['name'],
+//        ]);
 
         // Create Request
         Request::createService([

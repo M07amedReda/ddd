@@ -125,7 +125,6 @@ class Domain extends Maker
         $PSPStub = File::get(Path::stub('Domain','Providers','PolicyServiceProvider.stub'));
         $ReSPStub = File::get(Path::stub('Domain','Providers','RepositoryServiceProvider.stub'));
         $RoSPStub = File::get(Path::stub('Domain','Providers','RouteServiceProvider.stub'));
-        $DTStub = File::get(Path::stub('Domain','Providers','DatatableServiceProvider.stub'));
 
         $serviceServicers = [
             [
@@ -167,13 +166,6 @@ class Domain extends Maker
             [
                 "php"=>'RouteServiceProvider',
                 "stub"=>$RoSPStub,
-                'params'=>[
-                    '{{NAME}}'=>$this->name,
-                ]
-            ],
-            [
-                "php"=>'DatatableServiceProvider',
-                "stub"=>$DTStub,
                 'params'=>[
                     '{{NAME}}'=>$this->name,
                 ]

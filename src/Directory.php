@@ -62,26 +62,17 @@ class Directory extends Command
      */
     public function handle()
     {
-        Artisan::call('vendor:publish',[
-            '--provider'=>'Mediconesystems\LivewireDatatables\LivewireDatatablesServiceProvider',
-        ]);
-        $this->info("Livewire config Published");
-
         Artisan::call('livewire:publish',[
             '--assets'=>true
         ]);
+
         $this->info("Livewire assets Published");
 
-        Artisan::call('vendor:publish',[
-            '--provider'=>'Joselfonseca\LighthouseGraphQLPassport\Providers\LighthouseGraphQLPassportServiceProvider',
-        ]);
-        $this->info("Auth Passport Config Published");
-
         $this->setupDirectory();
-        $this->bootstrap();
-        $this->firstDomain();
 
-        $this->setupJS();
+        $this->bootstrap();
+
+        $this->firstDomain();
     }
 
     /**

@@ -1,5 +1,0 @@
-public function setUp(): void
-    {
-        parent::setUp();
-        $this->{{ENTITY_LC}} = app({{ENTITY}}::class);
-    }
